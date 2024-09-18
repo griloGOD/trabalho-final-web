@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR" 	xmlns:th="http://www.thymeleaf.org"
+					xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Aluguel de Quadras</title>
+</head>
+<body>
+	<h1>Aluguel de quadra!</h1>
+	
+	<p sec:authorize="hasRole('ADMIN')">
+		
+		<a th:href="@{/quadras/gerenciarquadras}">Gerenciar Quadras</a>
+		<br><br>
+		<a th:href="@{/reservas/mostrarreservas}">Vizualizar Reservas</a>
+	</p>
+	<p>
+		<a th:href="@{/reservas/reservarquadras}">Realizar Reserva</a>
+	</p>
+	
+	<div th:fragment="logout" class="logout" sec:authorize="isAuthenticated()">		
+		<p>Usuário Logado: <span sec:authentication="name"></span></p>
+		<p sec:authorize="hasRole('ADMIN')">ADMIN</p>
+		<p sec:authorize="hasRole('USER')">USUARIO</p>	
+		<div>
+			<form action="#" th:action="@{/logout}" method="post">					
+				<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>
+	
+	<br>
+	<form sec:authorize="!isAuthenticated()" action="#" th:action="@{/login}" method="get">
+		<input type="submit" value="Logar">
+	</form>
+	
+</body>
+</html>

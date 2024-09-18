@@ -1,0 +1,32 @@
+
+ <!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Quadras</title>
+</head>
+<body>
+    <h1>Quadras cadastradas!</h1>
+    <div th:each="quadra : ${quadras}">
+                <p>Tipo: [[*{quadra.tipo}]]</p>
+                <p>Valor: [[*{quadra.valor}]]</p>
+            <form action="#" th:action="@{/quadras/fazeralteracao}"  method="post">
+                <input type="hidden" name="codigo" th:value="*{quadra.codigo}">    
+                <input type="hidden" name="tipo" th:value="*{quadra.tipo}">
+                <input type="hidden" name="valor" th:value="*{quadra.valor}">
+                <input type="submit" value="Alterar">
+            </form>
+            <br>
+            <form action="#" th:action="@{/quadras/confirmaremocao}" method="post">
+                <input type="hidden" name="codigo" th:value="*{quadra.codigo}">    
+                <input type="hidden" name="tipo" th:value="*{quadra.tipo}">
+                <input type="hidden" name="valor" th:value="*{quadra.valor}">
+                <input type="submit" value="Remover">
+            </form>
+            <hr>
+    </div>
+    
+    <a th:href="@{/quadras/gerenciarquadras}">Voltar</a>
+</body>
+</html>

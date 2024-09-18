@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" 	xmlns:th="http://www.thymeleaf.org"
+					xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" th:href="@{/css/visual.css}"/>
+<!-- All the files that are required -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cadastrar cliente</title>
+</head>
+<body>
+    <div class="text-center" style="padding:50px 0">
+	<div class="logo">Cadastre-se</div>
+    <div class="login-form-1">
+	    <form action="#" th:action="@{/clientes/cadastrarcliente}" method="post" th:object="${cliente}">
+		    <div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<p>
+			        <input type = "hidden" th:field = "*{codigo}"/>
+			        <p>
+					<div class="form-group">
+			            <label for="nome">Nome:</label>
+			            <input type="text" th:field = "*{nome}">
+			            <span class="invalid-feedback" th:if="${#fields.hasErrors('nome')}" th:each="erro : ${#fields.errors('nome')}" th:text="${erro} + '. '">Erro no nome</span>
+			        </p>
+			        </div>
+			        <br> 
+			        <p> 
+			            <label for = "cpf">CPF:</label>
+			            <input type="text" th:field = "*{cpf}">
+			            <span class="invalid-feedback" th:if="${#fields.hasErrors('cpf')}" th:each="erro : ${#fields.errors('cpf')}" th:text="${erro} + '. '">Erro no cpf</span>
+			        </p>
+			        <br> 
+			        <p> 
+			            <label for = "usuario">Usuário:</label>
+			            <input type="text" th:field = "*{usuario}">
+			            <span class="invalid-feedback" th:if="${#fields.hasErrors('usuario')}" th:each="erro : ${#fields.errors('usuario')}" th:text="${erro} + '. '">Erro no nomeUsuario</span>
+			        </p>
+			        <br> 
+			        <p> 
+			            <label for = "senha">Senha:</label>
+			            <input type="password" th:field = "*{senha}">
+			            <span class="invalid-feedback" th:if="${#fields.hasErrors('senha')}" th:each="erro : ${#fields.errors('senha')}" th:text="${erro} + '. '">Erro na senha</span>
+			        </p>
+			        <br> 
+			        <p> 
+			            <label for = "telefone">Telefone:</label>
+			            <input type="text" th:field = "*{telefone}">
+			            <span class="invalid-feedback" th:if="${#fields.hasErrors('telefone')}" th:each="erro : ${#fields.errors('telefone')}" th:text="${erro} + '. '">Erro no telefone</span>
+			        </p>
+			        <br>
+				</div>
+			</div>
+			<input type = "submit" value = "Cadastrar">
+	    </form>
+    </div>
+    <br><br>
+    <a th:href="@{/login}">Voltar</a>
+    <hr>
+
+</body>
+</html>

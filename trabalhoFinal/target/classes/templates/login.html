@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" th:href="@{/css/visual.css}"/>
+<!-- All the files that are required -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta charset="UTF-8">
+	<title>Gerenciador de Contatos com Spring Boot</title>
+</head>
+<body>	
+	<div class="text-center" style="padding:50px 0">
+	<div class="logo">Login</div>
+	<p th:if="${param.error}">Usuário e/ou senha inválidos.</p>
+	<p th:if="${param.logout}">Você foi deslogado.</p>
+	<div class="login-form-1">
+		<form th:action="@{/login}" method="post" id="login-form" class="text-center" style="padding:50px 0">
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<p>
+					<div class="form-group">
+						<label for="username">Usuário:</label>
+						<input type="text" id="username" name="username" autofocus="autofocus">
+					</div>
+					</p>
+					<p>
+					<div class="form-group">
+						<label for="password">Password:</label>
+						<input type="password" id="password" name="password">
+					</div>
+					</p>
+				</div>
+			</div>
+			<input type="submit" value="Logar" />
+		</form>
+	</div>
+	<p>
+		<br>
+		<a href="#" th:href="@{/clientes/adicionacliente}">Criar uma nova conta </a>
+		<br><br>
+		<a href="#" th:href="@{/}">Voltar para página principal</a>
+	</p>
+
+
+</body>
+</html>

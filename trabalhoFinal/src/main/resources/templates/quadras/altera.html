@@ -1,0 +1,25 @@
+  <!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Alterar quadra</title>
+</head>
+<body>
+    <h1>Altere os dados!</h1>
+    
+    <form action="#" th:action="@{/quadras/alterarquadra}" th:object="${quadra}" method="post">
+        <input type="hidden" th:field="*{codigo}">  
+        <p>
+            <input type="text" th:field="*{tipo}" placeholder="tipo">
+        </p>
+        <p>
+            
+            <input type="text" th:field="*{valor}" placeholder="valor">
+        </p>
+        <input type="submit" value="Alterar">
+    </form>
+    <br>
+    <a th:href="@{/quadras/gerenciarquadras}">Voltar</a>
+</body>
+</html>

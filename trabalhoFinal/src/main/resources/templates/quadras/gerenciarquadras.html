@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>aluguel</title>
+</head>
+<body>
+	<h1>Aluguel de quadra!</h1>
+	
+	<p>
+		<a th:href="@{/quadras/adicionaquadra}">Inserir Quadras</a>
+	</p>
+	<p>
+		<a th:href="@{/quadras/mostrarquadra}">Remover/Alterar Quadras</a>
+	</p>
+	<br><br>
+	<a th:href="@{/}">Voltar</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+
+ <!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Reservas</title>
+</head>
+<body>
+    <h1>Reservas cadastradas!</h1>
+    <div th:each="reserva : ${reservas}">
+                <p>Dia: [[*{reserva.dia}]]</p>
+                <p>Horario: [[*{reserva.horario}]]</p>
+            <hr>
+        </option>
+    </div>
+    
+    <a th:href="@{/}">Voltar</a>
+</body>
+</html>
